@@ -10,3 +10,4 @@ LeetCode solutions written with javascript
 |344| [Reverse String](https://leetcode.com/problems/reverse-string) | [javascript](./algorithm/reverseString.js) | Easy |
 |90 | [Subsets II](https://leetcode.com/problems/subsets-ii/) | [javascript](./algorithm/subsetsWithDup.js) | Medium |
 |292| [Nim Game](https://leetcode.com/problems/nim-game) | [javascript](./algorithm/canWinNim.js) | Easy |
+|136| [Single Number](https://leetcode.com/problems/single-number/) | [javascript](./algorithm/singleNumber.js) | Easy |
