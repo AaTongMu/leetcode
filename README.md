@@ -13,3 +13,4 @@ LeetCode solutions written with javascript
 |136| [Single Number](https://leetcode.com/problems/single-number/) | [javascript](./algorithm/singleNumber.js) | Easy |
 |371| [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/) | [javascript](./algorithm/getSum.js) | Easy |
 |389| [Find the Difference](https://leetcode.com/problems/find-the-difference/) | [javascript](./algorithm/findTheDifference.js) | Easy |
+|258| [Add Digits](https://leetcode.com/problems/add-digits/) | [javascript](./algorithm/addDigits.js) | Easy |
