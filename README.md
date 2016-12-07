@@ -15,3 +15,5 @@ LeetCode solutions written with javascript
 |389| [Find the Difference](https://leetcode.com/problems/find-the-difference/) | [javascript](./algorithm/findTheDifference.js) | Easy |
 |258| [Add Digits](https://leetcode.com/problems/add-digits/) | [javascript](./algorithm/addDigits.js) | Easy |
 |283| [Move Zeroes](https://leetcode.com/problems/move-zeroes/) | [javascript](./algorithm/moveZeroes.js) | Easy |
+|383| [Ransom Note](https://leetcode.com/problems/ransom-note/) | [javascript](./algorithm/canConstruct.js) | Easy |
+|453| [Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/) | [javascript](./algorithm/minMoves.js) | Easy |
