@@ -18,3 +18,4 @@ LeetCode solutions written with javascript
 |383| [Ransom Note](https://leetcode.com/problems/ransom-note/) | [javascript](./algorithm/canConstruct.js) | Easy |
 |453| [Minimum Moves to Equal Array Elements](https://leetcode.com/problems/minimum-moves-to-equal-array-elements/) | [javascript](./algorithm/minMoves.js) | Easy |
 |349| [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | [javascript](./algorithm/intersection.js) | Easy |
+|404| [Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/) | [javascript](./algorithm/sumOfLeftLeaves.js) | Easy |

@@ -14,5 +14,5 @@ var intersection = function(nums1, nums2) {
         }
     });
 
-    return result;
+    return [...new Set(result)];
 };
