@@ -13,17 +13,19 @@ const algorithmPrefix = 'https://leetcode.com/problems/';
 
 const args = process.argv.slice(2);
 if (!args.length) {
-    console.log('\x1B[33m Missing question_id! \x1B[0m');
+    colorLog('Missing question_id!', 'error');
     process.exit();
 }
 const questionId = args[0];
 
 const algPromise = new Promise((resolve, reject) => {
+    // get algorithm list
     let algorithmStr = '';
     https.get(algorithmApi, (res) => {
         res.on('data', (chunk) => {
             algorithmStr += chunk;
         }).on('end', () => {
+            colorLog('Get algorithm data success!', 'success');
             resolve(JSON.parse(algorithmStr));
         })
     }).on('error', (e) => {
@@ -32,6 +34,7 @@ const algPromise = new Promise((resolve, reject) => {
 });
 
 algPromise.then((algorithm) => {
+    // find question stat by question_id
     let stat = null;
     algorithm.stat_status_pairs.forEach((item) => {
         if (item.stat.question_id == questionId) {
@@ -52,31 +55,42 @@ algPromise.then((algorithm) => {
     return stat;
 }).then((stat) => {
     if (!stat) {
-        console.log('\x1B[31m Question not found! \x1B[0m');
+        colorLog('Question not found!', 'error');
         process.exit();
     }
 
-    let readmeStr = `
-        \n|${stat.question_id}| [${stat.question__title}](${algorithmPrefix + stat.question__title_slug}) | [javascript](./algorithm/${humpName(stat.question__title)}.js) | ${stat.level} |
-    `;
+    const humpTitle = humpName(stat.question__title);
 
     // update README.md
-    fs.writeFile('README.md', readmeStr.split('\n').join(''), (err) => {
+    // TODO: check is README.md has this question id
+    let readmeStr = `\n|${stat.question_id}| [${stat.question__title}](${algorithmPrefix + stat.question__title_slug}) | [javascript](./algorithm/${humpTitle}.js) | ${stat.level} |`;
+    fs.appendFile('README.md', readmeStr, (err) => {
         if (err) throw err;
-        console.log('\x1B[31m Update README.md sucess! \x1B[0m');
+        colorLog('Update README.md success!', 'success');
     });
 
     // create solution file
-
+    const filePath = './algorithm/' + humpTitle + '.js';
+    try {
+        const fileStat = fs.statSync(filePath);
+        colorLog(`File: ${humpTitle}.js is exist!`, 'warn');
+    } catch (e) {
+        fs.writeFile(filePath, '// solution', (err) => {
+            if (err) throw err;
+            colorLog(`Created ${filePath} success!`, 'success');
+        });
+    }
 
 }).catch((e) => {
-    console.log('\x1B[31m' + e.message + '\x1B[0m');
+    colorLog(e.message, 'error');
+    process.exit();
 })
 
 /**
  * Convert to hump named
- * @param str {String} name string
- * @return humpName {String}
+ * 
+ * @param {string} str name string
+ * @return {string} humpName
  * 
  * @example:
  * humpName('Your name')  ->  'yourName'
@@ -96,4 +110,29 @@ function humpName(str) {
     });
 
     return nameConvertedArr.join('');
+}
+
+/**
+ * Stdout colored text
+ * 
+ * @param {string} text print text
+ * @param {string=} level info(blue)|warn(yellow)|error(red)
+ * @return void
+ */
+function colorLog(text, level) {
+    if (!level) {
+        level = 'LOG';
+    } else {
+        level = level.toUpperCase();
+    }
+
+    const LEVEL = {
+        'LOG': 0,
+        'INFO': 34,
+        'WARN': 33,
+        'ERROR': 31,
+        'SUCCESS': 32
+    }
+
+    console.log('\x1B[' + LEVEL[level] + 'm%s\x1B[0m\n', text);
 }
