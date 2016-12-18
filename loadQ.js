@@ -18,6 +18,16 @@ if (!args.length) {
 }
 const questionId = args[0];
 
+// vscode debug launch.json
+let vsDebugConfig = null;
+try {
+    vsDebugConfig = require('./.vscode/launch.json');
+} catch (e) {
+
+}
+
+console.log(vsDebugConfig)
+
 /**
  * Get question information 
  * 
@@ -148,6 +158,15 @@ getQuestionInfo(algorithmApi).then((algorithmList) => {
         fs.writeFile(filePath, '/** solution */', (err) => {
             if (err) throw err;
             colorLog(`Created ${filePath} success!`, 'success');
+        });
+    }
+
+    // modify vscode debug config
+    if (vsDebugConfig) {
+        vsDebugConfig.configurations[0].program = '${workspaceRoot}/algorithm/' + humpTitle + '.js';
+        fs.writeFile('./.vscode/launch.json', JSON.stringify(vsDebugConfig), (err) => {
+            if (err) throw err;
+            colorLog(`Modify launch.json success!`, 'success');
         });
     }
 }).catch((e) => {
