@@ -26,8 +26,6 @@ try {
 
 }
 
-console.log(vsDebugConfig)
-
 /**
  * Get question information 
  * 
@@ -35,6 +33,7 @@ console.log(vsDebugConfig)
  * @return Promise.
  */
 function getQuestionInfo(url) {
+    colorLog('Start to get question info', 'info');
     return new Promise((resolve, reject) => {
         // get algorithm list
         let result = '';

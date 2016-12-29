@@ -20,3 +20,4 @@ LeetCode solutions written with javascript
 |349| [Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/) | [javascript](./algorithm/intersection.js) | Easy |
 |404| [Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/) | [javascript](./algorithm/sumOfLeftLeaves.js) | Easy |
 |387| [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string) | [javascript](./algorithm/firstUniqueCharacterInAString.js) | Easy |
+|171| [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | [javascript](./algorithm/excelSheetColumnNumber.js) | Easy |
