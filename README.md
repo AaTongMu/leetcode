@@ -21,3 +21,4 @@ LeetCode solutions written with javascript
 |404| [Sum of Left Leaves](https://leetcode.com/problems/sum-of-left-leaves/) | [javascript](./algorithm/sumOfLeftLeaves.js) | Easy |
 |387| [First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string) | [javascript](./algorithm/firstUniqueCharacterInAString.js) | Easy |
 |171| [Excel Sheet Column Number](https://leetcode.com/problems/excel-sheet-column-number) | [javascript](./algorithm/excelSheetColumnNumber.js) | Easy |
+|485| [Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones) | [javascript](./algorithm/maxConsecutiveOnes.js) | Easy |
